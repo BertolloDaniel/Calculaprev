@@ -87,24 +87,3 @@ taxa_juros_anual = st.slider("Taxa de retorno anual estimada (%)", 0.0, 15.0, 6.
 anos_investimento = st.slider("Período de investimento (anos)", 1, 30, 5)
 saldo_futuro = simular_investimento(saldo_total, taxa_juros_anual, anos_investimento)
 st.write(f"Saldo projetado após {anos_investimento} anos: R$ {saldo_futuro:,.2f}")
-
-# Gráfico de evolução do saldo ao longo dos anos
-anos = np.arange(1, anos_investimento + 1)
-saldos = [simular_investimento(saldo_total, taxa_juros_anual, ano) for ano in anos]
-fig, ax = plt.subplots()
-ax.plot(anos, saldos, marker='o', color='green')
-ax.set_title("Evolução do Saldo Investido")
-ax.set_xlabel("Ano")
-ax.set_ylabel("Saldo (R$)")
-ax.grid(True)
-st.pyplot(fig)
-
-st.subheader("5. Tributação")
-ir_saque = calcular_ir(valor_saque, regime_tributario)
-ir_beneficio = calcular_ir(beneficio_mensal, regime_tributario)
-
-st.write(f"Imposto sobre saque: R$ {ir_saque:,.2f}")
-st.write(f"Imposto sobre benefício mensal: R$ {ir_beneficio:,.2f}")
-
-st.markdown("---")
-st.caption("Desenvolvido para estudo do caso Carlos (Previbayer)")
