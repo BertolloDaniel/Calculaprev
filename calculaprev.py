@@ -37,7 +37,7 @@ def calcular_ir(valor, regime):
             return valor * 0.275
 
 # Título do App
-st.title("Simulador de Aposentadoria - Caso Carlos")
+st.title("Calcula Prev")
 
 # Dados fixos do caso Carlos
 data_nascimento = datetime.strptime("1969-09-04", "%Y-%m-%d")
@@ -47,7 +47,7 @@ data_saida = datetime.strptime("2025-01-15", "%Y-%m-%d")
 saldo_total = st.number_input("Saldo acumulado (R$)", value=3833803.91)
 emprestimo_mensal = st.number_input("Parcela de empréstimo (R$)", value=7399.62)
 percentual_saque = st.slider("Percentual de saque (%)", 0, 100, 25)
-percentual_beneficio = st.slider("Percentual de benefício mensal (%)", 0.1, 3.0, 1.4, step=0.1)
+percentual_beneficio = st.slider("Percentual de benefício mensal (%)", 0.1, 0.5, 0.6, step=0.1)
 regime_tributario = st.radio("Regime de tributação", ["Progressivo", "Regressivo"])
 
 # Cálculos principais
